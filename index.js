@@ -76,7 +76,7 @@ d3.csv("data.csv", function (d) {
 
     g.selectAll(".bar")
         .data(locations)
-        .enter().append("rect")
+        .enter().append("rect") // use enter to create rectangles for the bars
         .attr("class", "bar")
         .attr("x", function (l) { return x(l.name); })
         .attr("y", function (l) { return y(l.values.length); })
