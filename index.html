@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>@LucasBerghoef</title>
+
+        <link rel=stylesheet href=style.css>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <!-- Chart based on: https://bl.ocks.org/mbostock/3885304 -->
+        <!-- Data: https://open.data.amsterdam.nl/Tentoonstellingen.csv -->
+        <!-- Sorting based on: https://github.com/cmda-fe3/course-17-18/tree/master/site/class-4/sort -->
+
+    </head>
+
+    <body>
+        <h1>Number of upcoming exhibitions in Amsterdam per location</h1>
+
+        <svg width="960" height="500"></svg>
+
+        <hr/>
+
+        <label for="sort">Sort</label> <!-- added a label for "sort" --> 
+        <input type="checkbox" id="sort" /> <!-- added a checkbox with id sort so they are grouped together -->
+
+        <script src="index.js"></script>
+    </body>
+
+</html>

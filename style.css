@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(207, 207, 207); /* Changed the background color to light grey */
+}
+
+h1 {
+  font-family: Helvetica, Arial, sans-serif; /* Changed the font of the H1 element to helvetica / sans-serif */
+  color: rgb(255, 255, 255); /* Changed the color to white */
+}
+
+label {
+  font-family: Helvetica, Arial, sans-serif; /* Changed the font of the label element to helvetica / sans-serif  */
+}
+
+.bar {
+  fill: rgb(216, 35, 90); /* Changed the color to off red/pink */
+  transition: fill .250s; /* Added a transition */
+}
+
+.bar:hover {
+  fill: rgb(43, 207, 131); /* Changed the hover color to off cyan */
+}
