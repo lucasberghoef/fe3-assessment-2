@@ -101,20 +101,33 @@ d3.csv("data.csv", function (d) {
     y.domain(yRange).nice();
 ```
 
-### 3. Added an input to the html file
+### 3. Using enter to create rectangles for the bars in the barchart
+The bars need to be created based on the y(l.values.length) by using the .enter function.
+```js
+g.selectAll(".bar")
+        .data(locations)
+        .enter().append("rect") // use enter to create rectangles for the bars
+        .attr("class", "bar")
+        .attr("x", function (l) { return x(l.name); })
+        .attr("y", function (l) { return y(l.values.length); })
+        .attr("width", x.bandwidth())
+        .attr("height", function (l) { return height - y(l.values.length); });
+```
+
+### 4. Added an input to the html file
 I've added an input to the html file. This input was needed to switch between the two different sorting modes. I included a label to make the input checkbox easier to click.
 ```html
 <label for="sort">Sort</label>
 <input type="checkbox" id="sort"/>
 ```
 
-### 4. Added event listener in the js to monitor changes
+### 5. Added event listener in the js to monitor changes
 Then I added an event listener to monitor changes to the input field.
 ```js
 d3.select('input').on('change', onchange);
 ```
 
-### 5. Added global var
+### 6. Added global var
 I added a global variable for the data so it would be accesible to all helper functions.
 ```js
 var data;
@@ -128,7 +141,7 @@ d3.tsv("data.tsv", function (d) {
     data = d; // Puts the data inside the global variable.
 ```
 
-### 6. Making helper functions into an object called 'helper'
+### 7. Making helper functions into an object called 'helper'
 Because there were a lot of functions only performing a single task, I decided to put these functions in a different namespace. This helped me differentiate between built in functions and 'custom' helper functions. To achieve this, I created an object called `helper` and put all these functions inside it. The keys of the object functioned like function names, and the values were the actual functions.
 ```js
 const helper = {
@@ -141,13 +154,13 @@ const helper = {
 }
 ```
 
-### 7. Changing the reference to these 'helper' functions
+### 8. Changing the reference to these 'helper' functions
 * This ment I had to change all references to these functions. For example:
 ```js
 var x0 = x.domain(data.sort(sort).map(helper.letter)).copy();
 ```
 
-### 8. Styling the chart
+### 9. Styling the chart
 Now it's time to add some styling to the chart to make it my own.
 * Changed background color to light grey
 * Added a H1 element in the html and changed the font to helvetica, the color to white.
